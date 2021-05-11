@@ -16,6 +16,15 @@ import {
 
 const edgeCaseWord = "to"; //only 2 characters
 const originalWord = "mozilla"; //note that it is lowercase
+const wordData = [
+  ["mozilla"],
+  ["firefox"],
+  ["chrome"],
+  ["react"],
+  ["jest"],
+  ["go"],
+  ["unity"],
+];
 const longWord = "mozillafirefoxbutreallylongfortestinglongstrings";
 
 test("longToShort returns a string of shorter length than original, and 'less than or equal' if it is 2 or less characters", () => {
@@ -26,11 +35,14 @@ test("longToShort returns a string of shorter length than original, and 'less th
   expect(shortEdgeCaseWord.length).toBeLessThanOrEqual(originalWord.length);
 });
 
-test("longToShort returns a string which can be restored back to the original using shortToLong", () => {
-  const shortWord = longToShort(originalWord);
-  const restoreOriginalWord = shortToLong(shortWord);
-  expect(restoreOriginalWord).toBe(originalWord);
-});
+test.each(wordData)(
+  "longToShort returns a string which can be restored back to the original using shortToLong",
+  (word) => {
+    const shortWord = longToShort(word);
+    const restoreOriginalWord = shortToLong(shortWord);
+    expect(restoreOriginalWord).toBe(word);
+  }
+);
 
 test("longToShort and shortToLong work for long length strings", () => {
   const shortWord = longToShort(longWord);
