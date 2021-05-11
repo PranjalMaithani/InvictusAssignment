@@ -80,16 +80,17 @@ Responsible for converting the shorter string back to the original string. This 
 
 The frontend of the application. Uses controlled input to make sure the user can only input a lowercase string as the original string and only an alphanumeric string in the shorter string version. Displays a message to convey this information.
 
-### __tests__ folder
+
+## \_\_tests\_\_ 
 
 `yarn test` to run all tests
 
-Frontend tests:
+### Frontend tests:
 * Cannot enter an invalid value in 'original' field. Only lowercase letters a-z allowed
 * Cannot enter an invalid value in 'shorter' field. Only alphanumeric characters a-zA-Z0-9 allowed
 * UI and app is working with data received from the server. Uses mock functions to resolve returned data from a server.
 
-Backend tests:
+### Backend tests:
 * longToShort returns a string of shorter length than original, and 'less than or equal' if it is 2 or less characters
 * longToShort returns a string which can be restored back to the original using shortToLong. Takes an array of data for testing with different parameters. Currently we are testing with the following array `[
   ["mozilla"],
@@ -107,7 +108,7 @@ Backend tests:
 * Array to string and string to array are bidirectional and correct. `[3,1,20]` <-> `'cat'`
 * longToShort and shortToLong work for words starting with 'a'. 
 
-### Why 27 characters in the base26 array?
+## Why 27 characters in the base26 array?
 
 When using this algorithm with 26 characters `[a-z]` in the base26 array, I found out when converting words that start with the letter 'a', they don't get encoded properly. 'aaac' would result in 'c' which converts back to 'c'. All the 'a's were lost! 
 The reason was that 'a' represents 0 in our base26 and so gets lost in the encoding process of the algorithm. To solve this problem I introduced \_ at the 0 index of the base26 array. Since we are not allowing the user to type in anything but lowercase letters, this \_ will pop up in the shorter strings only.
