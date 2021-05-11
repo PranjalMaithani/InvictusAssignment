@@ -19,6 +19,10 @@ a {
   box-sizing: border-box;
 }
 
+label {
+  color: rgb(77, 73, 73);
+}
+
 .wrapper {
   margin-top: 10vh;
   box-shadow: 2px 5px 10px 10px rgba(0, 0, 0, 0.1);
