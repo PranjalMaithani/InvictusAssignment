@@ -14,16 +14,16 @@ import {
   stringToArray,
 } from "../pages/api/shortToLong";
 
+const edgeCaseWord = "to"; //only 2 characters
 const originalWord = "mozilla"; //note that it is lowercase
 const longWord = "mozillafirefoxbutreallylongfortestinglongstrings";
 
-test("longToShort returns a string of shorter length than original, or equal if it is 2 or less characters", () => {
+test("longToShort returns a string of shorter length than original, and 'less than or equal' if it is 2 or less characters", () => {
   const shortWord = longToShort(originalWord);
-  if (originalWord.length <= 2) {
-    expect(shortWord.length).toBe(originalWord.length);
-  } else {
-    expect(shortWord.length).toBeLessThan(originalWord.length);
-  }
+  expect(shortWord.length).toBeLessThan(originalWord.length);
+
+  const shortEdgeCaseWord = longToShort(edgeCaseWord);
+  expect(shortEdgeCaseWord.length).toBeLessThanOrEqual(originalWord.length);
 });
 
 test("longToShort returns a string which can be restored back to the original using shortToLong", () => {
