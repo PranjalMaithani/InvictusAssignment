@@ -22,7 +22,7 @@ test("Cannot enter an invalid value in 'original' field. Only lowercase letters 
 test("Cannot enter an invalid value in 'shorter' field. Only alphanumeric characters a-zA-Z0-9 allowed", () => {
   render(<App />);
   const input = screen.getByLabelText(/shorter/i);
-  userEvent.type(input, "$$$_");
+  userEvent.type(input, "$$$#");
   expect(screen.getByRole("alert")).toHaveTextContent(
     /String can only have alphanumeric characters \(a-z, A-Z, 0-9\)/i
   );

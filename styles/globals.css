@@ -50,16 +50,13 @@ label {
   padding: 15px 0;
   font-size: 0.9em;
   padding-right: 15px;
+  border-bottom: 4px solid rgb(77, 72, 72);
 }
 
 .inputsDiv {
   display: grid;
   grid-auto-flow: row;
   justify-content: center;
-}
-
-.buttonsDiv {
-  justify-self: ;
 }
 
 .error {

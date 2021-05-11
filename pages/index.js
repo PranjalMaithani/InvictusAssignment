@@ -3,7 +3,7 @@ import { useState } from "react";
 import { shortToLong, longToShort } from "../lib/fetchData";
 
 const lowercaseRegex = new RegExp(/[a-z]*/);
-const alphanumericRegex = new RegExp(/[a-zA-Z0-9]*/);
+const alphanumericRegex = new RegExp(/[a-zA-Z0-9_]*/);
 
 export default function Home() {
   const [original, setOriginal] = useState("");
