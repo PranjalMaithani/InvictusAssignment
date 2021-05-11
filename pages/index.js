@@ -56,22 +56,46 @@ export default function Home() {
     setShorterLength(short.length);
   };
 
+  const onEnterKey = (event, callback) => {
+    if (event.keyCode === 13) {
+      callback();
+    }
+  };
+
   return (
     <div>
       <div>
         <label htmlFor="original">Original</label>
-        <input value={original} onChange={handleOriginal} id="original" />
-        {<p>{originalLength}</p>}
+        <input
+          value={original}
+          onChange={handleOriginal}
+          id="original"
+          onKeyDown={(e) => {
+            onEnterKey(e, handleLongToShort);
+          }}
+        />
+        {<p>length={originalLength}</p>}
         <label htmlFor="shorter">Shorter</label>
-        <input value={shorter} onChange={handleShort} id="shorter" />
-        {<p>{shorterLength}</p>}
+        <input
+          value={shorter}
+          onChange={handleShort}
+          id="shorter"
+          onKeyDown={(e) => {
+            onEnterKey(e, handleShortToLong);
+          }}
+        />
+        {<p>length={shorterLength}</p>}
       </div>
 
       <div>
         <button onClick={handleLongToShort}>Get Short String</button>
         <button onClick={handleShortToLong}>Get Original String</button>
       </div>
-      {error && <p>{error}</p>}
+      {error && (
+        <div role="alert" style={{ color: "red" }}>
+          {error}
+        </div>
+      )}
     </div>
   );
 }

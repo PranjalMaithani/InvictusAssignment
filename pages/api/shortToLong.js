@@ -1,18 +1,20 @@
-const lowercaseString = "abcdefghijklmnopqrstuvwxyz";
+const lowercaseString = "_abcdefghijklmnopqrstuvwxyz";
 
 const alphaNumeric =
-  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 const BASE26 = lowercaseString.split("");
 
 const BASE62 = alphaNumeric.split("");
 
-const BigIntBase26 = BigInt(26);
+const BigIntBase26 = BigInt(27);
 
-const BigIntBase62 = BigInt(62);
+const BigIntBase62 = BigInt(63);
+
+//the underscore _ at the start of both bases is a placeholder, so that words starting with the letter 'a' get encoded properly
+//otherwise 'a' refers to 0 and is lost in encoding
 
 //takes the encoded number and converts it to the string it was converted from
-
 function Decode(data) {
   let result = "";
   while (data > 0) {
