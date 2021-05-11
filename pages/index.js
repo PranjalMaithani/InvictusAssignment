@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useState } from "react";
 
 import { shortToLong, longToShort } from "../lib/fetchData";

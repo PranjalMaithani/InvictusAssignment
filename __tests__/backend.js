@@ -68,3 +68,10 @@ test("Array to string and string to array are bidirectional and correct", () => 
   const restoredWord = arrayToString(array);
   expect(restoredWord).toBe(originalWord);
 });
+
+test("longToShort and shortToLong work for words starting with 'a'", () => {
+  const word = "aaaaay";
+  const shortWord = longToShort(word);
+  const restoreOriginalWord = shortToLong(shortWord);
+  expect(restoreOriginalWord).toBe(word);
+});
