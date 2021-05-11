@@ -1,4 +1,6 @@
-`yarn` and `yarn dev` to run the application
+[Online demo here](https://invictus-assignment.vercel.app/)
+
+`yarn` and `yarn dev` to run the application <br />
 `yarn test` to run tests
 
 ## Stack used:
@@ -110,7 +112,7 @@ The frontend of the application. Uses controlled input to make sure the user can
 
 ## Why 27 characters in the base26 array?
 
-When using this algorithm with 26 characters `[a-z]` in the base26 array, I found out when converting words that start with the letter 'a', they don't get encoded properly. 'aaac' would result in 'c' which converts back to 'c'. All the 'a's were lost! 
+When using this algorithm with 26 characters `[a-z]` in the base26 array, I found out when converting words that start with the letter 'a', they don't get encoded properly. 'aaac' would result in 'c' which converts back to 'c'. All the 'a's were lost! <br />
 The reason was that 'a' represents 0 in our base26 and so gets lost in the encoding process of the algorithm. To solve this problem I introduced \_ at the 0 index of the base26 array. Since we are not allowing the user to type in anything but lowercase letters, this \_ will pop up in the shorter strings only.
 
 ![All tests passing!](https://i.imgur.com/In8QJPf.png)
