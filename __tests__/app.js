@@ -1,5 +1,5 @@
 import * as React from "react";
-import { act, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../pages/index";
 
@@ -46,7 +46,7 @@ test("UI and app is working with data received from the server", async () => {
   expect(longToShort).toHaveBeenCalledTimes(1);
   expect(longToShort).toHaveBeenCalledWith(originalWord);
 
-  //resetting originalWordInput to ""
+  //resetting originalWordInput to an empty string
   userEvent.clear(originalInput);
   userEvent.click(screen.getByRole("button", { name: /get original string/i }));
 

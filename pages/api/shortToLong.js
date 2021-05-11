@@ -15,7 +15,7 @@ const BigIntBase62 = BigInt(63);
 //otherwise 'a' refers to 0 and is lost in encoding
 
 //takes the encoded number and converts it to the string it was converted from
-function Decode(data) {
+export function Decode(data) {
   let result = "";
   while (data > 0) {
     let r = data % BigIntBase26;
@@ -27,15 +27,15 @@ function Decode(data) {
 
 //getting the array of exponential values from the string
 //Example: kf -> [10,5] (a = index 0, b = 1, c = 2, ... f = 5 ....  k = 10)
-function stringToArray(s) {
+export function stringToArray(s) {
   let stringArr = s.split("");
   let arr = stringArr.map((c) => BASE62.indexOf(c));
   return arr;
 }
 
 //getting the number from the array of exponential values using base conversion
-//Example: [10,5] -> 62¹ * 10 + 62⁰ * 5 = 620 + 5 -> 625
-function arrayToNumber(arr) {
+//Example: [10,5] -> 63¹ * 10 + 63⁰ * 5 = 630 + 5 -> 635
+export function arrayToNumber(arr) {
   let result = BigInt(0);
   arr.forEach((num, index) => {
     let multi = BigInt(1);
@@ -56,7 +56,7 @@ function arrayToNumber(arr) {
 
 //Combining all the three functions above, provides the original string from a short string
 
-function shortToLong(word) {
+export function shortToLong(word) {
   let array = stringToArray(word);
   let value = arrayToNumber(array);
   let originalWord = Decode(value);
