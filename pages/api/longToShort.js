@@ -1,15 +1,15 @@
-const lowercaseString = "_abcdefghijklmnopqrstuvwxyz";
+const lowercaseString = "abcdefghijklmnopqrstuvwxyz";
 
 const alphaNumeric =
-  "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 export const BASE26 = lowercaseString.split("");
 
 const BASE62 = alphaNumeric.split("");
 
-export const BigIntBase26 = BigInt(27);
+export const BigIntBase26 = BigInt(26);
 
-const BigIntBase62 = BigInt(63);
+const BigIntBase62 = BigInt(62);
 
 //the underscore _ at the start of both bases is a placeholder, so that words starting with the letter 'a' get encoded properly
 //otherwise 'a' refers to 0 and is lost in encoding
@@ -27,7 +27,7 @@ export function Encode(word, baseValue, baseArray) {
 }
 
 //Takes the number and using base conversion gets the exponential values in an array
-//Example: 635 -> 63¹ * 10 + 63⁰ * 5 -> [10,5]
+//Example: 625 -> 62¹ * 10 + 62⁰ * 5 -> [10,5]
 export function numberToBaseArray(number) {
   let digits = [];
   let num = BigInt(number);

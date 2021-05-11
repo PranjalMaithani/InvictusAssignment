@@ -62,36 +62,45 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <div>
-        <label htmlFor="original">Original</label>
-        <input
-          value={original}
-          onChange={handleOriginal}
-          id="original"
-          onKeyDown={(e) => {
-            onEnterKey(e, handleLongToShort);
-          }}
-        />
-        {<p>length={originalLength}</p>}
-        <label htmlFor="shorter">Shorter</label>
-        <input
-          value={shorter}
-          onChange={handleShort}
-          id="shorter"
-          onKeyDown={(e) => {
-            onEnterKey(e, handleShortToLong);
-          }}
-        />
-        {<p>length={shorterLength}</p>}
+    <div className="wrapper">
+      <div className="containerTop">
+        Pranjal Maithani - Incvictus Assignment
       </div>
+      <div className="container">
+        <div className="inputsDiv">
+          <div>
+            <label htmlFor="original">Original</label>
+            <input
+              value={original}
+              onChange={handleOriginal}
+              id="original"
+              onKeyDown={(e) => {
+                onEnterKey(e, handleLongToShort);
+              }}
+            />
+          </div>
+          {<p>length={originalLength}</p>}
+          <div>
+            <label htmlFor="shorter">Shorter</label>
+            <input
+              value={shorter}
+              onChange={handleShort}
+              id="shorter"
+              onKeyDown={(e) => {
+                onEnterKey(e, handleShortToLong);
+              }}
+            />
+          </div>
+          {<p>length={shorterLength}</p>}
+        </div>
 
-      <div>
-        <button onClick={handleLongToShort}>Get Short String</button>
-        <button onClick={handleShortToLong}>Get Original String</button>
+        <div className="buttonsDiv">
+          <button onClick={handleLongToShort}>Get Short String</button>
+          <button onClick={handleShortToLong}>Get Original String</button>
+        </div>
       </div>
       {error && (
-        <div role="alert" style={{ color: "red" }}>
+        <div role="alert" className="error">
           {error}
         </div>
       )}

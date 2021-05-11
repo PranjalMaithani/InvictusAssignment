@@ -46,16 +46,16 @@ test("Encoding and Decoding are bidirectional", () => {
 
 test("Array to number is working correctly", () => {
   const number = arrayToNumber([10, 5]);
-  expect(number).toEqual(BigInt(635));
+  expect(number).toEqual(BigInt(625));
 });
 
 test("Number to array is working correctly", () => {
-  const array = numberToBaseArray(BigInt(635));
+  const array = numberToBaseArray(BigInt(625));
   expect(array).toEqual([10, 5]);
 });
 
 test("Number to array and array to number are bidirectional", () => {
-  const originalNumber = BigInt(635);
+  const originalNumber = BigInt(625);
   const array = numberToBaseArray(originalNumber);
   const restoredNumber = arrayToNumber(array);
   expect(restoredNumber).toEqual(originalNumber);
