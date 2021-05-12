@@ -34,10 +34,6 @@ label {
   margin-top: 10vh;
   box-shadow: 2px 5px 10px 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
-
-  @media (min-width: 520px) {
-    width: 50vw;
-  }
 }
 
 .container {
