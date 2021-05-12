@@ -5,7 +5,6 @@
 
 ## Stack used:
 * NextJS - both backend and frontend
-* Styled Components - styling
 * Jest & Testing Library - tests
 
 ## The Algorithm
